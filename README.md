@@ -39,7 +39,7 @@ JeecgBoot的宗旨是降低前后端分离的开发成本，提高UI能力的同
 - [@antv/g2](https://antv.alipay.com/zh-cn/index.html) - Alipay AntV 数据可视化图表
 - [Viser-vue](https://viserjs.github.io/docs.html#/viser/guide/installation)  - antv/g2 封装实现
 - eslint，[@vue/cli 3.2.1](https://cli.vuejs.org/zh/guide)
-
+- vue-print-nb - 打印
 
 #### 开发环境
 
@@ -70,6 +70,9 @@ JeecgBoot的宗旨是降低前后端分离的开发成本，提高UI能力的同
 - 学习思路 ：  [跟着我们零基础学习前后端分离开发](http://jeecg-boot.mydoc.io/?t=340820)
  
 - 常见问题 ：  [http://www.jeecg.org/forum.php?mod=viewthread&tid=7816&page=1&extra=#pid21237](http://www.jeecg.org/forum.php?mod=viewthread&tid=7816&page=1&extra=#pid21237)
+
+- Angular版本 ：[如果你更熟悉Angular，请点击这里找到jeecg-boot的对应版本](https://gitee.com/dangzhenghui/jeecg-boot)
+ 
 
 ### 功能模块
 ```
