@@ -17,6 +17,23 @@ JEECG宗旨是: 简单功能由Online Coding配置实现，NO代码；复杂功�
 Jeecg-Boot快速开发平台，可以应用在任何J2EE项目的开发中，尤其适合企业信息管理系统（MIS）、内部办公系统（OA）、企业资源计划系统（ERP）、客户关系管理系统（CRM）等，其半智能手工Merge的开发方式，可以显著提高开发效率70%以上，极大降低开发成本。
 
 
+
+技术文档
+-----------------------------------
+
+- 在线演示 ：  [http://boot.jeecg.org](http://boot.jeecg.org)
+
+- 在线文档 ：  [http://jeecg-boot.mydoc.io](http://jeecg-boot.mydoc.io)
+
+- 入门教程：  [http://jeecg-boot.mydoc.io/?t=345660](http://jeecg-boot.mydoc.io/?t=345660)
+
+- 入门必看：  [JeecgBoot常见问题大全](http://www.jeecg.org/forum.php?mod=viewthread&tid=7816&extra=page%3D1)
+
+- QQ交流群 ：  284271917
+
+
+
+
 为什么选择JEECG-BOOT?
 -----------------------------------
 * 1.采用最新主流前后分离框架（Springboot+Mybatis+antd），容易上手; 代码生成器依赖性低,灵活的扩展能力，可灵活实现二次开发;
@@ -47,23 +64,7 @@ Jeecg-Boot快速开发平台，可以应用在任何J2EE项目的开发中，尤
 * 25.提供简单易用的打印插件，支持谷歌、IE浏览器等各种浏览器
 * 26.示例代码丰富，提供很多学习案例参考
 
-
-#### 技术文档
-
-
-- 在线演示 ：  [http://boot.jeecg.org](http://boot.jeecg.org)
-
-- 官方文档 ：  [http://jeecg-boot.mydoc.io](http://jeecg-boot.mydoc.io)
-
-- 入门必看：  [http://jeecg-boot.mydoc.io/?t=345660](http://jeecg-boot.mydoc.io/?t=345660)
-
-- 入门必看：  [JeecgBoot常见问题大全](http://www.jeecg.org/forum.php?mod=viewthread&tid=7816&extra=page%3D1)
-
-- QQ交流群 ：  284271917
-
-- 视频教程（视频有点老，以文档为准） ：  https://pan.baidu.com/s/1Il0TS50I70vH1AG1y40wtw 提取码：hok5
-
-- Angular版本 ：[如果你更熟悉Angular，请点击这里](https://gitee.com/dangzhenghui/jeecg-boot)
+ 
  
  
 技术架构：
@@ -96,6 +97,7 @@ Jeecg-Boot快速开发平台，可以应用在任何J2EE项目的开发中，尤
 - [Viser-vue](https://viserjs.github.io/docs.html#/viser/guide/installation)  - antv/g2 封装实现
 - eslint，[@vue/cli 3.2.1](https://cli.vuejs.org/zh/guide)
 - vue-print-nb - 打印
+
 
 #### 开发环境
 
@@ -220,37 +222,6 @@ Jeecg-Boot快速开发平台，可以应用在任何J2EE项目的开发中，尤
    
 ```
    
-   
-
-系统效果
-----
-
-![输入图片说明](https://static.oschina.net/uploads/img/201902/25154007_icdX.png "在这里输入图片标题")
-![输入图片说明](https://static.oschina.net/uploads/img/201904/14155402_AmlV.png "在这里输入图片标题")
-![输入图片说明](https://static.oschina.net/uploads/img/201904/14160623_8fwk.png "在这里输入图片标题")
-![输入图片说明](https://static.oschina.net/uploads/img/201904/14160633_u59G.png "在这里输入图片标题")
-![输入图片说明](https://static.oschina.net/uploads/img/201904/14160643_kCJ7.png "在这里输入图片标题")
-![输入图片说明](https://static.oschina.net/uploads/img/201904/14160650_fcgw.png "在这里输入图片标题")
-![输入图片说明](https://static.oschina.net/uploads/img/201904/14160657_cHwb.png "在这里输入图片标题")
-![输入图片说明](https://static.oschina.net/uploads/img/201904/14160705_NAJn.png "在这里输入图片标题")
-![输入图片说明](https://static.oschina.net/uploads/img/201904/14160751_bsO9.png "在这里输入图片标题")
-![输入图片说明](https://static.oschina.net/uploads/img/201904/14160801_2AhS.png "在这里输入图片标题")
-![输入图片说明](https://static.oschina.net/uploads/img/201904/14160813_KmXS.png "在这里输入图片标题")
-![输入图片说明](https://static.oschina.net/uploads/img/201904/14160828_pkFr.png "在这里输入图片标题")
-![输入图片说明](https://static.oschina.net/uploads/img/201904/14160834_Lo23.png "在这里输入图片标题")
-![输入图片说明](https://static.oschina.net/uploads/img/201904/14160842_QK7B.png "在这里输入图片标题")
-![输入图片说明](https://static.oschina.net/uploads/img/201904/14160849_GBm5.png "在这里输入图片标题")
-![输入图片说明](https://static.oschina.net/uploads/img/201904/14160858_6RAM.png "在这里输入图片标题")
-![输入图片说明](https://static.oschina.net/uploads/img/201904/14160905_RGJ5.png "在这里输入图片标题")
-![输入图片说明](https://static.oschina.net/uploads/img/201904/14160917_9Ftz.png "在这里输入图片标题")
-![输入图片说明](https://static.oschina.net/uploads/img/201904/14160926_PUDV.png "在这里输入图片标题")
-![输入图片说明](https://static.oschina.net/uploads/img/201904/14160935_Nibs.png "在这里输入图片标题")
-![输入图片说明](https://static.oschina.net/uploads/img/201904/14160947_gfoN.png "在这里输入图片标题")
-![输入图片说明](https://static.oschina.net/uploads/img/201904/14160957_hN3X.png "在这里输入图片标题")
-![输入图片说明](https://static.oschina.net/uploads/img/201904/14161004_bxQ4.png "在这里输入图片标题")
-![输入图片说明](https://static.oschina.net/uploads/img/201904/14161013_zW5n.png "在这里输入图片标题")
-
-
 
 
 后台开发环境和依赖
@@ -275,7 +246,7 @@ Jeecg-Boot快速开发平台，可以应用在任何J2EE项目的开发中，尤
 - [vue-cropper](https://github.com/xyxiao001/vue-cropper) - 头像裁剪组件
 - [@antv/g2](https://antv.alipay.com/zh-cn/index.html) - Alipay AntV 数据可视化图表
 - [Viser-vue](https://viserjs.github.io/docs.html#/viser/guide/installation)  - antv/g2 封装实现
-
+- [jeecg-boot-angular 版本](https://gitee.com/dangzhenghui/jeecg-boot)
 
 
 项目下载和运行
@@ -306,6 +277,34 @@ yarn run build
 yarn run lint
 ```
 
+
+系统效果
+----
+
+![输入图片说明](https://static.oschina.net/uploads/img/201902/25154007_icdX.png "在这里输入图片标题")
+![输入图片说明](https://static.oschina.net/uploads/img/201904/14155402_AmlV.png "在这里输入图片标题")
+![输入图片说明](https://static.oschina.net/uploads/img/201904/14160623_8fwk.png "在这里输入图片标题")
+![输入图片说明](https://static.oschina.net/uploads/img/201904/14160633_u59G.png "在这里输入图片标题")
+![输入图片说明](https://static.oschina.net/uploads/img/201904/14160643_kCJ7.png "在这里输入图片标题")
+![输入图片说明](https://static.oschina.net/uploads/img/201904/14160650_fcgw.png "在这里输入图片标题")
+![输入图片说明](https://static.oschina.net/uploads/img/201904/14160657_cHwb.png "在这里输入图片标题")
+![输入图片说明](https://static.oschina.net/uploads/img/201904/14160705_NAJn.png "在这里输入图片标题")
+![输入图片说明](https://static.oschina.net/uploads/img/201904/14160751_bsO9.png "在这里输入图片标题")
+![输入图片说明](https://static.oschina.net/uploads/img/201904/14160801_2AhS.png "在这里输入图片标题")
+![输入图片说明](https://static.oschina.net/uploads/img/201904/14160813_KmXS.png "在这里输入图片标题")
+![输入图片说明](https://static.oschina.net/uploads/img/201904/14160828_pkFr.png "在这里输入图片标题")
+![输入图片说明](https://static.oschina.net/uploads/img/201904/14160834_Lo23.png "在这里输入图片标题")
+![输入图片说明](https://static.oschina.net/uploads/img/201904/14160842_QK7B.png "在这里输入图片标题")
+![输入图片说明](https://static.oschina.net/uploads/img/201904/14160849_GBm5.png "在这里输入图片标题")
+![输入图片说明](https://static.oschina.net/uploads/img/201904/14160858_6RAM.png "在这里输入图片标题")
+![输入图片说明](https://static.oschina.net/uploads/img/201904/14160905_RGJ5.png "在这里输入图片标题")
+![输入图片说明](https://static.oschina.net/uploads/img/201904/14160917_9Ftz.png "在这里输入图片标题")
+![输入图片说明](https://static.oschina.net/uploads/img/201904/14160926_PUDV.png "在这里输入图片标题")
+![输入图片说明](https://static.oschina.net/uploads/img/201904/14160935_Nibs.png "在这里输入图片标题")
+![输入图片说明](https://static.oschina.net/uploads/img/201904/14160947_gfoN.png "在这里输入图片标题")
+![输入图片说明](https://static.oschina.net/uploads/img/201904/14160957_hN3X.png "在这里输入图片标题")
+![输入图片说明](https://static.oschina.net/uploads/img/201904/14161004_bxQ4.png "在这里输入图片标题")
+![输入图片说明](https://static.oschina.net/uploads/img/201904/14161013_zW5n.png "在这里输入图片标题")
 
 
 其他说明
