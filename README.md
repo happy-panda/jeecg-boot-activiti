@@ -50,6 +50,8 @@ Jeecg-Boot快速开发平台，可以应用在任何J2EE项目的开发中，尤
 
 - 技术论坛：  [http://www.jeecg.org](http://www.jeecg.org)
 
+- 版本日志：  [http://jeecg.com/#/doc/changelog](http://jeecg.com/#/doc/changelog)
+
 
 
 为什么选择JEECG-BOOT?
