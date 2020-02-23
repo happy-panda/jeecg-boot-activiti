@@ -7,7 +7,7 @@
 Jeecg-Boot 快速开发平台（前后端分离版本）
 ===============
 
-当前最新版本： 2.1.3（发布日期：20191226）
+当前最新版本： 2.1.4（发布日期：2020-02-24）
 
 
 [![AUR](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg)](https://github.com/zhangdaiscott/jeecg-boot/blob/master/LICENSE)
@@ -43,7 +43,7 @@ Jeecg-Boot快速开发平台，可以应用在任何J2EE项目的开发中，尤
 
 - 技术官网：  [http://www.jeecg.com](http://www.jeecg.com)
 
-- 开发文档：  [http://doc.jeecg.com/1273753](http://doc.jeecg.com/1273753)
+- 开发文档：  [http://doc.jeecg.com](http://doc.jeecg.com/1273753)
 
 - 视频教程  ：[JeecgBoot入门系列视频](https://space.bilibili.com/454617261/channel/detail?cid=84186)
 
@@ -67,7 +67,7 @@ Jeecg-Boot快速开发平台，可以应用在任何J2EE项目的开发中，尤
 
 为什么选择JEECG-BOOT?
 -----------------------------------
-* 1.采用最新主流前后分离框架（Springboot2+Mybatis+antd），容易上手; 代码生成器依赖性低,灵活的扩展能力，可灵活实现二次开发;
+* 1.采用最新主流前后分离框架（Springboot+Mybatis+antd），容易上手; 代码生成器依赖性低,灵活的扩展能力，可灵活实现二次开发;
 * 2.开发效率很高,采用代码生成器，单表数据模型和一对多(父子表)数据模型，增删改查功能自动生成，菜单配置直接使用；
 * 3.代码生成器提供强大模板机制，支持自定义模板风格。目前提供四套风格模板（单表两套、一对多两套）
 * 4.封装完善的用户、角色、菜单、组织机构、数据字典、在线定时任务等基础功能，支持访问授权、按钮权限、数据权限等功能
