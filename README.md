@@ -58,4 +58,4 @@ filterChainDefinitionMap.put("/editor-app/**", "anon");
 
 如果觉得还不错，一毛两毛都是爱，一块两块都是情，土豪随意 ☺
 
-![](https://images.gitee.com/uploads/images/2020/0503/232933_b1ee3efb_1406033.jpeg)
+![](https://images.gitee.com/uploads/images/2020/0503/233422_fb33411b_1406033.jpeg)
