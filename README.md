@@ -289,6 +289,9 @@ Jeecg-Boot快速开发平台，可以应用在任何J2EE项目的开发中，尤
 ```
    
 
+### Jeecg Boot 功能蓝图
+![功能蓝图](https://static.jeecg.com/upload/test/jeecgboot产品功能蓝图_1590911318641.jpg "在这里输入图片标题")
+
 
 后台开发环境和依赖
 ----
