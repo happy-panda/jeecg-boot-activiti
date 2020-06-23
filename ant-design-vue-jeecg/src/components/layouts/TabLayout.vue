@@ -105,9 +105,10 @@
         // update-begin-author:taoyan date:20200211 for: TASK #3368 【路由缓存】首页的缓存设置有问题，需要根据后台的路由配置来实现是否缓存
         } else if(indexKey==newRoute.fullPath) {
           //首页时 判断是否缓存 没有缓存 刷新之
-          if (newRoute.meta.keepAlive === false) {
+          //https://gitee.com/jeecg/jeecg-boot/issues/I1ARZ0  bug 【路由缓存】 有缓存时，chart-card无法得到数据渲染
+          // if (newRoute.meta.keepAlive === false) {
             this.routeReload()
-          }
+          // }
         // update-end-author:taoyan date:20200211 for: TASK #3368 【路由缓存】首页的缓存设置有问题，需要根据后台的路由配置来实现是否缓存
         }else if (this.linkList.indexOf(newRoute.fullPath) < 0) {
           this.linkList.push(newRoute.fullPath)
