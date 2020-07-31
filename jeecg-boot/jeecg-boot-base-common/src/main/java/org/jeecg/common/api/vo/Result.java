@@ -59,7 +59,7 @@ public class Result<T> implements Serializable {
 		return this;
 	}
 	
-	
+	@Deprecated
 	public static Result<Object> ok() {
 		Result<Object> r = new Result<Object>();
 		r.setSuccess(true);
@@ -68,6 +68,7 @@ public class Result<T> implements Serializable {
 		return r;
 	}
 	
+	@Deprecated
 	public static Result<Object> ok(String msg) {
 		Result<Object> r = new Result<Object>();
 		r.setSuccess(true);
@@ -76,10 +77,36 @@ public class Result<T> implements Serializable {
 		return r;
 	}
 	
+	@Deprecated
 	public static Result<Object> ok(Object data) {
 		Result<Object> r = new Result<Object>();
 		r.setSuccess(true);
 		r.setCode(CommonConstant.SC_OK_200);
+		r.setResult(data);
+		return r;
+	}
+	
+	public static<T> Result<T> OK() {
+		Result<T> r = new Result<T>();
+		r.setSuccess(true);
+		r.setCode(CommonConstant.SC_OK_200);
+		r.setMessage("成功");
+		return r;
+	}
+	
+	public static<T> Result<T> OK(T data) {
+		Result<T> r = new Result<T>();
+		r.setSuccess(true);
+		r.setCode(CommonConstant.SC_OK_200);
+		r.setResult(data);
+		return r;
+	}
+	
+	public static<T> Result<T> OK(String msg, T data) {
+		Result<T> r = new Result<T>();
+		r.setSuccess(true);
+		r.setCode(CommonConstant.SC_OK_200);
+		r.setMessage(msg);
 		r.setResult(data);
 		return r;
 	}
