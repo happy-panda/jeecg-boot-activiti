@@ -11,6 +11,7 @@
     <a-spin tip="Loading..." :spinning="false">
       <a-input-search style="margin-bottom: 1px" placeholder="请输入部门名称按回车进行搜索" @search="onSearch" />
       <a-tree
+        class="my-dept-select-tree"
         checkable
         :treeData="treeData"
         :checkStrictly="true"
@@ -237,6 +238,10 @@
 
 </script>
 
-<style scoped>
-
+<style lang="less" scoped>
+// 限制部门选择树高度，避免部门太多时点击确定不便
+.my-dept-select-tree{
+  height: 350px;
+  overflow-y: scroll;
+}
 </style>
