@@ -15,6 +15,7 @@ public interface CacheConstant {
 	 * 表字典信息缓存
 	 */
     public static final String SYS_DICT_TABLE_CACHE = "sys:cache:dictTable";
+    public static final String SYS_DICT_TABLE_BY_KEYS_CACHE = SYS_DICT_TABLE_CACHE + "ByKeys";
 
 	/**
 	 * 数据权限配置缓存
