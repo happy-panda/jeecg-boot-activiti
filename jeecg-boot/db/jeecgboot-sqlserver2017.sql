@@ -12887,7 +12887,7 @@ GO
 INSERT INTO [dbo].[sys_permission]  VALUES (N'6ad53fd1b220989a8b71ff482d683a5a', N'2a470fc0c3954d9dbb61de6d80846549', N'一对多Tab示例', N'/jeecg/tablist/JeecgOrderDMainList', N'jeecg/tablist/JeecgOrderDMainList', NULL, NULL, N'1', NULL, NULL, N'2', N'0', NULL, N'1', N'1', NULL, N'0', NULL, N'admin', N'2019-02-20 14:45:09.0000000', N'admin', N'2019-02-21 16:26:21.0000000', N'0', N'0', NULL, NULL)
 GO
 
-INSERT INTO [dbo].[sys_permission]  VALUES (N'6e73eb3c26099c191bf03852ee1310a1', N'717f6bee46f44a3897eca9abd6e2ec44', N'个人设置', N'/account/settings/Index', N'account/settings/Index', NULL, NULL, N'1', NULL, NULL, N'2', N'1', NULL, N'1', N'0', NULL, N'0', NULL, NULL, N'2018-12-25 20:34:38.0000000', N'admin', N'2019-04-19 09:41:05.0000000', N'0', N'0', NULL, NULL)
+INSERT INTO [dbo].[sys_permission]  VALUES (N'6e73eb3c26099c191bf03852ee1310a1', N'717f6bee46f44a3897eca9abd6e2ec44', N'个人设置', N'/account/settings/BaseSetting', N'account/settings/Index', NULL, NULL, N'1', NULL, NULL, N'2', N'1', NULL, N'1', N'0', NULL, N'0', NULL, NULL, N'2018-12-25 20:34:38.0000000', N'admin', N'2019-04-19 09:41:05.0000000', N'0', N'0', NULL, NULL)
 GO
 
 INSERT INTO [dbo].[sys_permission]  VALUES (N'700b7f95165c46cc7a78bf227aa8fed3', N'08e6b9dc3c04489c8e1ff2ce6f105aa4', N'性能监控', N'/monitor', N'layouts/RouteView', NULL, NULL, N'1', NULL, NULL, N'0', N'0', NULL, N'1', N'0', NULL, N'0', NULL, N'admin', N'2019-04-02 11:34:34.0000000', N'admin', N'2019-05-05 17:49:47.0000000', N'0', N'0', NULL, NULL)
