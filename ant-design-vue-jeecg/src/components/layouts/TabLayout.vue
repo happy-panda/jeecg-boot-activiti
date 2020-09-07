@@ -132,8 +132,9 @@
         // 【TESTA-523】修复：不允许重复跳转路由异常
         if (waitRouter.fullPath !== this.$route.fullPath) {
           this.$router.push(Object.assign({}, waitRouter))
-          this.changeTitle(waitRouter.meta.title)
         }
+        // 动态更改document.title
+        this.changeTitle(waitRouter.meta.title)
       },
       'multipage': function(newVal) {
         if(this.reloadFlag){
