@@ -9,8 +9,9 @@
             :defaultSelectedKeys="defaultSelectedKeys"
             type="inner"
             @openChange="onOpenChange"
+            v-model="selectedKeys"
           >
-            <a-menu-item key="/account/settings/base">
+            <a-menu-item key="/account/settings/BaseSetting">
               <router-link :to="{ name: 'account-settings-base' }">
                 基本设置
               </router-link>
@@ -93,6 +94,17 @@
     },
     mounted(){
       this.mainInfoHeight = (window.innerHeight-285)+"px";
+    },
+    computed: {
+      /**
+       * 根据路由计算当前选中菜单
+       *
+       * @author: tanpenggood
+       * @date: 2020/9/7 18:50
+       */
+      selectedKeys() {
+        return [this.$route.path]
+      }
     },
     methods: {
       onOpenChange (openKeys) {
