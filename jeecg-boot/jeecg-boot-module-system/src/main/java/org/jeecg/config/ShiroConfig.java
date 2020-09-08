@@ -108,11 +108,6 @@ public class ShiroConfig {
 		filterChainDefinitionMap.put("/webjars/**", "anon");
 		filterChainDefinitionMap.put("/v2/**", "anon");
 
-		//性能监控
-		filterChainDefinitionMap.put("/actuator/metrics/**", "anon");
-		filterChainDefinitionMap.put("/actuator/httptrace/**", "anon");
-		filterChainDefinitionMap.put("/actuator/redis/**", "anon");
-
 		//测试示例
 		filterChainDefinitionMap.put("/test/jeecgDemo/html", "anon"); //模板页面
 		filterChainDefinitionMap.put("/test/jeecgDemo/redis/**", "anon"); //redis测试
