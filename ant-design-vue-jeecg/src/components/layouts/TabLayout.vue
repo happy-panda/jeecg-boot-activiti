@@ -115,11 +115,11 @@
         }else if (this.linkList.indexOf(newRoute.fullPath) < 0) {
           this.linkList.push(newRoute.fullPath)
           this.pageList.push(Object.assign({},newRoute))
-          // update-begin-author:sunjianlei date:20200103 for: 如果新增的页面配置了缓存路由，那么就强制刷新一遍
-          if (newRoute.meta.keepAlive) {
-            this.routeReload()
-          }
-          // update-end-author:sunjianlei date:20200103 for: 如果新增的页面配置了缓存路由，那么就强制刷新一遍
+          // update-begin-author:sunjianlei date:20200103 for: 如果新增的页面配置了缓存路由，那么就强制刷新一遍 #842
+          // if (newRoute.meta.keepAlive) {
+          //   this.routeReload()
+          // }
+          // update-end-author:sunjianlei date:20200103 for: 如果新增的页面配置了缓存路由，那么就强制刷新一遍 #842
         } else if (this.linkList.indexOf(newRoute.fullPath) >= 0) {
           let oldIndex = this.linkList.indexOf(newRoute.fullPath)
           let oldPositionRoute = this.pageList[oldIndex]
@@ -132,9 +132,8 @@
         // 【TESTA-523】修复：不允许重复跳转路由异常
         if (waitRouter.fullPath !== this.$route.fullPath) {
           this.$router.push(Object.assign({}, waitRouter))
+          this.changeTitle(waitRouter.meta.title)
         }
-        // 动态更改document.title
-        this.changeTitle(waitRouter.meta.title)
       },
       'multipage': function(newVal) {
         if(this.reloadFlag){
@@ -309,8 +308,12 @@
           this.$store.dispatch(ToggleMultipage,true)
           this.reloadFlag = true
         })
-      }
+      },
       //update-end-author:taoyan date:20191008 for:路由刷新
+      //新增一个返回方法
+      excuteCallback(callback){
+        callback()
+      },
     }
   }
 </script>
