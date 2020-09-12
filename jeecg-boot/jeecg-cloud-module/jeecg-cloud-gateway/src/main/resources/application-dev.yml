@@ -19,15 +19,19 @@ spring:
         - id: jeecg-demo
           uri: lb://jeecg-demo
           predicates:
-            - Path=/test/**,/api/**,/vxeSocket/**
+            - Path=/test/**,/api/**
         - id: jeecg-system
           uri: lb://jeecg-system
           predicates:
-            - Path=/sys/**,/websocket/**,/online/**,/webSocketApi/**,/message/**
-        - id: jeecg-cloud-websocket
+            - Path=/sys/**,/webSocketApi/**,/online/**,/message/**
+        - id: jeecg-system-websocket
           uri: lb:ws://jeecg-system
           predicates:
             - Path=/websocket/**
+        - id: jeecg-demo-websocket
+          uri: lb:ws://jeecg-demo
+          predicates:
+            - Path=/vxeSocket/**
 management:
   endpoints:
     web:
