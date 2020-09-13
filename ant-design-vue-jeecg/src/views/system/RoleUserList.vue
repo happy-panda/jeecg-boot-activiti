@@ -87,7 +87,6 @@
         <!-- 右侧的角色权限配置 -->
         <user-role-modal ref="modalUserRole"></user-role-modal>
         <role-modal ref="modalForm" @ok="modalFormOk"></role-modal>
-        <sys-role-design-modal ref="roleDesignModal"></sys-role-design-modal>
       </a-card>
     </a-col>
     <a-col :md="rightColMd" :sm="24" v-if="this.rightcolval == 1">
