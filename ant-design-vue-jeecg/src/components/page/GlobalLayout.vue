@@ -3,7 +3,7 @@
 
     <template v-if="layoutMode === 'sidemenu'">
       <a-drawer
-        v-show="device === 'mobile'"
+        v-if="device === 'mobile'"
         :wrapClassName="'drawer-sider ' + navTheme"
         placement="left"
         @close="() => this.collapsed = false"
