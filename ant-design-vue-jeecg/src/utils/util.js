@@ -136,14 +136,13 @@ function  generateChildRouters (data) {
       componentPath = resolve => require(['@/' + component+'.vue'], resolve)
     }
 
-
     let menu =  {
       path: item.path,
       name: item.name,
       redirect:item.redirect,
       component: componentPath,
+      //component: resolve => require(['@/' + component+'.vue'], resolve),
       hidden:item.hidden,
-      //component:()=> import(`@/views/${item.component}.vue`),
       meta: {
         title:item.meta.title ,
         icon: item.meta.icon,
@@ -151,8 +150,9 @@ function  generateChildRouters (data) {
         permissionList:item.meta.permissionList,
         keepAlive:item.meta.keepAlive,
         /*update_begin author:wuxianquan date:20190908 for:赋值 */
-        internalOrExternal:item.meta.internalOrExternal
+        internalOrExternal:item.meta.internalOrExternal,
         /*update_end author:wuxianquan date:20190908 for:赋值 */
+        componentName:item.meta.componentName
       }
     }
     if(item.alwaysShow){

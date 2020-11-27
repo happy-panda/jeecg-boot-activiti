@@ -7,7 +7,7 @@
 JEECG BOOT 低代码开发平台（前后端分离版本）
 ===============
 
-当前最新版本： 2.3（发布日期：2020-09-14）
+当前最新版本： 2.4.0（发布日期：2020-12-01）
 
 
 [![AUR](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg)](https://github.com/zhangdaiscott/jeecg-boot/blob/master/LICENSE)
@@ -130,15 +130,17 @@ Jeecg-Boot低代码开发平台，可以应用在任何J2EE项目的开发中，
 
 
 #### 后端
-- 基础框架：Spring Boot 2.1.3.RELEASE \ Spring Cloud Alibaba 2.1.0.RELEASE
+- 基础框架：Spring Boot 2.3.5.RELEASE
 
-- 持久层框架：Mybatis-plus_3.1.2
+- 微服务框架： Spring Cloud Alibaba 2.2.3.RELEASE
 
-- 安全框架：Apache Shiro 1.4.0，Jwt_3.7.0
+- 持久层框架：Mybatis-plus 3.4.1
 
-- 微服务技术：Spring Cloud Alibaba、Nacos、Gateway、Sentinel、Skywarking
+- 安全框架：Apache Shiro 1.7.0，Jwt 3.11.0
 
-- 数据库连接池：阿里巴巴Druid 1.1.10
+- 微服务技术栈：Spring Cloud Alibaba、Nacos、Gateway、Sentinel、Skywarking
+
+- 数据库连接池：阿里巴巴Druid 1.1.22
 
 - 缓存框架：redis
 

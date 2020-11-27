@@ -5,6 +5,7 @@ import org.apache.catalina.Context;
 import org.apache.tomcat.util.scan.StandardJarScanner;
 import org.jeecg.common.util.oConvertUtils;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
@@ -18,6 +19,7 @@ import java.net.UnknownHostException;
 
 @Slf4j
 @SpringBootApplication
+//@EnableAutoConfiguration(exclude={org.activiti.spring.boot.SecurityAutoConfiguration.class})
 public class JeecgSystemApplication extends SpringBootServletInitializer {
 
     @Override
@@ -26,8 +28,6 @@ public class JeecgSystemApplication extends SpringBootServletInitializer {
     }
 
     public static void main(String[] args) throws UnknownHostException {
-        //System.setProperty("spring.devtools.restart.enabled", "true");
-
         ConfigurableApplicationContext application = SpringApplication.run(JeecgSystemApplication.class, args);
         Environment env = application.getEnvironment();
         String ip = InetAddress.getLocalHost().getHostAddress();
@@ -37,8 +37,7 @@ public class JeecgSystemApplication extends SpringBootServletInitializer {
                 "Application Jeecg-Boot is running! Access URLs:\n\t" +
                 "Local: \t\thttp://localhost:" + port + path + "/\n\t" +
                 "External: \thttp://" + ip + ":" + port + path + "/\n\t" +
-                "Swagger-ui: \thttp://" + ip + ":" + port + path + "/swagger-ui.html\n\t" +
-                "Doc文档: \thttp://" + ip + ":" + port + path + "/doc.html\n" +
+                "Swagger文档: \thttp://" + ip + ":" + port + path + "/doc.html\n" +
                 "----------------------------------------------------------");
 
     }
