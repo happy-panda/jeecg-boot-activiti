@@ -10,7 +10,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@jeecg/antd-online-mini": "2.4.0-beta",
+    "@jeecg/antd-online-mini": "2.4.0-beta2",
     "ant-design-vue": "^1.7.2",
     "@antv/data-set": "^0.11.4",
     "viser-vue": "^2.4.8",
