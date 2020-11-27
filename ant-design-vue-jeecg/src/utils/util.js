@@ -126,6 +126,8 @@ function  generateChildRouters (data) {
       componentPath = onlineCommons.OnlCgformTreeList
     }else if(item.component=="modules/online/cgform/auto/erp/OnlCgformErpList"){
       componentPath = onlineCommons.OnlCgformErpList
+    }else if(item.component=="modules/online/cgform/auto/tab/OnlCgformTabList"){
+      componentPath = onlineCommons.OnlCgformTabList
     }else if(item.component=="modules/online/cgform/auto/innerTable/OnlCgformInnerTableList"){
       componentPath = onlineCommons.OnlCgformInnerTableList
     }else if(item.component=="modules/online/cgreport/OnlCgreportHeadList"){

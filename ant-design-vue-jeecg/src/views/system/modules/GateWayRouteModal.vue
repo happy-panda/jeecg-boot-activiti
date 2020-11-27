@@ -127,11 +127,6 @@
         loading: false
       }
     },
-    watch: {
-      'router.routerId'(val) {
-        this.router.uri = 'lb://' + val
-      }
-    },
     methods: {
       getRouter() {
         return {

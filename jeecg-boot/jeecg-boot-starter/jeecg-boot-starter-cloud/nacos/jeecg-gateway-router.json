@@ -12,7 +12,9 @@
       "_genkey_5": "/desform/**",
       "_genkey_6": "/online/**",
       "_genkey_8": "/act/**",
-      "_genkey_9": "/plug-in/**"
+      "_genkey_9": "/plug-in/**",
+      "_genkey_10": "/generic/**",
+      "_genkey_11": "/druid/**"
     }
   }],
   "filters": [],
@@ -38,7 +40,8 @@
     "name": "Path",
     "args": {
       "_genkey_0": "/websocket/**",
-      "_genkey_1": "/eoaSocket/**"
+      "_genkey_1": "/eoaSocket/**",
+      "_genkey_2": "/newsWebsocket/**"
     }
   }],
   "filters": [],

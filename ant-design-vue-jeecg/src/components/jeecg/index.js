@@ -14,6 +14,7 @@ import JImageUpload from './JImageUpload.vue'
 import JTreeDict from './JTreeDict.vue'
 import JCheckbox from './JCheckbox.vue'
 import JCron from './JCron.vue'
+import JSelectMultiple from './JSelectMultiple.vue'
 import JPopupOnlReport from './modal/JPopupOnlReport.vue'
 
 export default {
@@ -35,5 +36,6 @@ export default {
     Vue.component('JCheckbox', JCheckbox)
     Vue.component('JCron', JCron)
     Vue.component('JPopupOnlReport', JPopupOnlReport)
+    Vue.component('JSelectMultiple', JSelectMultiple)
   }
 }

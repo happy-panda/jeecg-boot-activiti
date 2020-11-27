@@ -24,11 +24,11 @@ spring:
         - id: jeecg-system
           uri: lb://jeecg-system
           predicates:
-            - Path=/sys/**,/eoa/**,/joa/**,/online/**,/bigscreen/**,/jmreport/**,/desform/**,/act/**,/plug-in/**
+            - Path=/sys/**,/eoa/**,/joa/**,/online/**,/bigscreen/**,/jmreport/**,/desform/**,/act/**,/plug-in/**,/generic/**,/druid/**
         - id: jeecg-system-websocket
           uri: lb:ws://jeecg-system
           predicates:
-            - Path=/websocket/**,/eoaSocket/**
+            - Path=/websocket/**,/eoaSocket/**,/newsWebsocket/**
         - id: jeecg-demo-websocket
           uri: lb:ws://jeecg-demo
           predicates:
