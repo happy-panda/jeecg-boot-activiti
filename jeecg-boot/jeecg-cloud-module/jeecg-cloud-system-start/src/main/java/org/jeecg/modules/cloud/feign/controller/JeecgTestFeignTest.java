@@ -1,11 +1,11 @@
-package org.jeecg.modules.feigndemo.controller;
+package org.jeecg.modules.cloud.feign.controller;
 
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.jeecg.common.api.vo.Result;
-import org.jeecg.modules.feigndemo.feign.JeecgTestClient;
-import org.jeecg.modules.feigndemo.feign.JeecgTestClient2;
+import org.jeecg.modules.cloud.feign.feign.JeecgTestClient;
+import org.jeecg.modules.cloud.feign.feign.JeecgTestClient2;
 import org.jeecg.starter.cloud.feign.impl.JeecgFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

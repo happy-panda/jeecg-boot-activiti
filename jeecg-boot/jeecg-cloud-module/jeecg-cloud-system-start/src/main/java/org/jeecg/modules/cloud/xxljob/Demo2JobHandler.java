@@ -1,5 +1,5 @@
 
-package org.jeecg.modules.cloud.test;;
+package org.jeecg.modules.cloud.xxljob;;
 
 
 import com.xxl.job.core.biz.model.ReturnT;

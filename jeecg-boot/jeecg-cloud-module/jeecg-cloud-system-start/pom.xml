@@ -29,16 +29,16 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!--rabbitmq消息队列-->
-        <dependency>
-            <groupId>org.jeecgframework.boot</groupId>
-            <artifactId>jeecg-boot-starter-rabbitmq</artifactId>
-        </dependency>
         <!--xxl-job定时任务-->
         <dependency>
             <groupId>org.jeecgframework.boot</groupId>
             <artifactId>jeecg-boot-starter-job</artifactId>
         </dependency>
+        <!--rabbitmq消息队列
+       <dependency>
+           <groupId>org.jeecgframework.boot</groupId>
+           <artifactId>jeecg-boot-starter-rabbitmq</artifactId>
+       </dependency>-->
     </dependencies>
 
     <build>
