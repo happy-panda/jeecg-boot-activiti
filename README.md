@@ -1,362 +1,76 @@
 
-
-
-JEECG BOOT 低代码开发平台（前后端分离版本）
+Jeecg-Boot 快速开发平台（前后端分离版本 之 activiti）
 ===============
+- 基于 https://github.com/zhangdaiscott/jeecg-boot 开源版的activiti流程扩展
+- 为什么不继续维护fork仓库？
+>码云上项目搜索直接默认屏蔽fork项目，另外本人只提交issue，作者也不随便接受pull，维护fork仓库显得很呆，故而干脆自己新启一个仓库
 
-当前最新版本： 2.4.0（发布日期：2020-12-01）
+- 当前已同步到版本： v.2.4.0  --2020年12月18日17:57:32之前   
+  I am busy with my work recently. I will update it in a month
 
+>主干文档就不在这里展示了，大家都是从主干那里到我这来的，对吧！本fork跟踪主干更新，会有少量修改，通常是为了更好的体验。要注意的是，**本fork完全不会管online模块，因为本人不会去使用任何在线功能**（原因不解释），可能会直接删掉一些相关文件。
+如果介意，可自行copy我的代码，根据下述步骤自行整合到主干代码中。
 
-技术文档
------------------------------------
+-  本项目是自己用的，取之于开源，回报以开源罢了。不是大佬，不建群，不交流，需要交流留言，有时间就来看看，另外可以加jeecg的交流群，jeecg团队就在群里，有什么框架问题问他们更好，主干如果没有什么不可兼容的大变化，本项目都会保持同步。
 
-- 技术官网：  [http://www.jeecg.com](http://www.jeecg.com)
-
-- 开发文档：  [http://doc.jeecg.com](http://doc.jeecg.com)
-
-- 微服务启动：  [单体升级为微服务启动文档2.4+](http://doc.jeecg.com/2043906)
-
-- 在线演示 ： [http://boot.jeecg.com](http://boot.jeecg.com)
-
-- 视频教程  ：[JeecgBoot入门视频](http://www.jeecg.com/doc/video)
-
-- 常见问题：  [入门常见问题Q&A](http://jeecg.com/doc/qa)
-
-- 更新日志：  [版本日志](http://www.jeecg.com/doc/log)
-
-
- 
-技术架构：
------------------------------------
-#### 开发环境
-
-- 语言：Java 8
-
-- IDE(JAVA)： IDEA / Eclipse安装lombok插件 
-
-- IDE(前端)： WebStorm 或者 IDEA
-
-- 依赖管理：Maven
-
-- 数据库：MySQL5.7+  &  Oracle 11g & Sqlserver2017
-
-- 缓存：Redis
-
-
-#### 后端
-- 基础框架：Spring Boot 2.3.5.RELEASE
-
-- 微服务框架： Spring Cloud Alibaba 2.2.3.RELEASE
-
-- 持久层框架：Mybatis-plus 3.4.1
-
-- 安全框架：Apache Shiro 1.7.0，Jwt 3.11.0
-
-- 微服务技术栈：Spring Cloud Alibaba、Nacos、Gateway、Sentinel、Skywarking
-
-- 数据库连接池：阿里巴巴Druid 1.1.22
-
-- 缓存框架：redis
-
-- 日志打印：logback
-
-- 其他：fastjson，poi，Swagger-ui，quartz, lombok（简化代码）等。
-
-
-#### 前端
- 
-- [Vue 2.6.10](https://cn.vuejs.org/),[Vuex](https://vuex.vuejs.org/zh/),[Vue Router](https://router.vuejs.org/zh/)
-- [Axios](https://github.com/axios/axios)
-- [ant-design-vue](https://vuecomponent.github.io/ant-design-vue/docs/vue/introduce-cn/)
-- [webpack](https://www.webpackjs.com/),[yarn](https://yarnpkg.com/zh-Hans/)
-- [vue-cropper](https://github.com/xyxiao001/vue-cropper) - 头像裁剪组件
-- [@antv/g2](https://antv.alipay.com/zh-cn/index.html) - Alipay AntV 数据可视化图表
-- [Viser-vue](https://viserjs.github.io/docs.html#/viser/guide/installation)  - antv/g2 封装实现
-- eslint，[@vue/cli 3.2.1](https://cli.vuejs.org/zh/guide)
-- vue-print-nb - 打印
+>整合文档已说明，使用文档无，必要的说明写在代码注释中，只要对jeecgboot熟悉，有一定工作经验的人自己看懂怎么用很容易。如果是初学者，个人不建议研究jeecgboot，相对来说此项目有一定技术经验门槛。建议初学者去学习一下若依，为什么若依粉丝量那么多，也是这个道理。
 
 
 
+<h3>activiti 模块说明</h3>  ------- from pmc
 
-
-### 功能模块
+>使用**activiti5.22.0**版本
++ JeecgApplication.java   
+  修改注解
 ```
-├─系统管理
-│  ├─用户管理
-│  ├─角色管理
-│  ├─菜单管理
-│  ├─权限设置（支持按钮权限、数据权限）
-│  ├─表单权限（控制字段禁用、隐藏）
-│  ├─部门管理
-│  ├─我的部门（二级管理员）
-│  └─字典管理
-│  └─分类字典
-│  └─系统公告
-│  └─职务管理
-│  └─通讯录
-│  └─多租户管理
-├─消息中心
-│  ├─消息管理
-│  ├─模板管理
-├─代码生成器(低代码)
-│  ├─代码生成器功能（一键生成前后端代码，生成后无需修改直接用，绝对是后端开发福音）
-│  ├─代码生成器模板（提供4套模板，分别支持单表和一对多模型，不同风格选择）
-│  ├─代码生成器模板（生成代码，自带excel导入导出）
-│  ├─查询过滤器（查询逻辑无需编码，系统根据页面配置自动生成）
-│  ├─高级查询器（弹窗自动组合查询条件）
-│  ├─Excel导入导出工具集成（支持单表，一对多 导入导出）
-│  ├─平台移动自适应支持
-├─系统监控
-│  ├─Gateway路由网关
-│  ├─性能扫描监控
-│  │  ├─监控 Redis
-│  │  ├─Tomcat
-│  │  ├─jvm
-│  │  ├─服务器信息
-│  │  ├─请求追踪
-│  │  ├─磁盘监控
-│  ├─定时任务
-│  ├─系统日志
-│  ├─消息中心（支持短信、邮件、微信推送等等）
-│  ├─数据日志（记录数据快照，可对比快照，查看数据变更情况）
-│  ├─系统通知
-│  ├─SQL监控
-│  ├─swagger-ui(在线接口文档)
-│─报表示例
-│  ├─曲线图
-│  └─饼状图
-│  └─柱状图
-│  └─折线图
-│  └─面积图
-│  └─雷达图
-│  └─仪表图
-│  └─进度条
-│  └─排名列表
-│  └─等等
-│─大屏模板
-│  ├─作战指挥中心大屏
-│  └─物流服务中心大屏
-│─常用示例
-│  ├─自定义组件
-│  ├─对象存储(对接阿里云)
-│  ├─JVXETable示例（各种复杂ERP布局示例）
-│  ├─单表模型例子
-│  └─一对多模型例子
-│  └─打印例子
-│  └─一对多TAB例子
-│  └─内嵌table例子
-│  └─常用选择组件
-│  └─异步树table
-│  └─接口模拟测试
-│  └─表格合计示例
-│  └─异步树列表示例
-│  └─一对多JEditable
-│  └─JEditable组件示例
-│  └─图片拖拽排序
-│  └─图片翻页
-│  └─图片预览
-│  └─PDF预览
-│  └─分屏功能
-│─封装通用组件	
-│  ├─行编辑表格JEditableTable
-│  └─省略显示组件
-│  └─时间控件
-│  └─高级查询
-│  └─用户选择组件
-│  └─报表组件封装
-│  └─字典组件
-│  └─下拉多选组件
-│  └─选人组件
-│  └─选部门组件
-│  └─通过部门选人组件
-│  └─封装曲线、柱状图、饼状图、折线图等等报表的组件（经过封装，使用简单）
-│  └─在线code编辑器
-│  └─上传文件组件
-│  └─验证码组件
-│  └─树列表组件
-│  └─表单禁用组件
-│  └─等等
-│─更多页面模板
-│  ├─各种高级表单
-│  ├─各种列表效果
-│  └─结果页面
-│  └─异常页面
-│  └─个人页面
-├─高级功能
-│  ├─系统编码规则
-│  ├─提供单点登录CAS集成方案
-│  ├─提供APP发布方案
-│  ├─集成Websocket消息通知机制
-├─Online在线开发(低代码)
-│  ├─Online在线表单 - 功能已开放
-│  ├─Online代码生成器 - 功能已开放
-│  ├─Online在线报表 - 功能已开放
-│  ├─Online在线图表(暂不开源)
-│  ├─Online图表模板配置(暂不开源)
-│  ├─Online布局设计(暂不开源)
-│  ├─多数据源管理 - 功能已开放
-├─积木报表设计器(低代码)
-│  ├─打印设计器
-│  ├─数据报表设计
-│  ├─图形报表设计（支持echart）
-│  ├─大屏设计器(暂不开源)
-│─流程模块功能 (暂不开源)
-│  ├─流程设计器
-│  ├─在线表单设计
-│  └─我的任务
-│  └─历史流程
-│  └─历史流程
-│  └─流程实例管理
-│  └─流程监听管理
-│  └─流程表达式
-│  └─我发起的流程
-│  └─我的抄送
-│  └─流程委派、抄送、跳转
-│  └─。。。
-└─其他模块
-   └─更多功能开发中。。
-   
-```
-
-## 微服务整体解决方案(2.4+版本)
-
-
-1、服务注册和发现 Nacos √
-
-2、统一配置中心 Nacos  √
-
-3、路由网关 gateway(三种加载方式) √
-
-4、分布式 http feign √
-
-5、熔断和降级 Sentinel √
-
-6、分布式文件 Minio、阿里OSS √ 
-
-7、统一权限控制 JWT + Shiro √
-
-8、服务监控 SpringBootAdmin√
-
-9、链路跟踪 Skywarking   [参考文档](https://www.kancloud.cn/zhangdaiscott/jeecgcloud/1771670)
-
-10、消息中间件 RabbitMQ  √
-
-11、分布式任务 xxl-job  √ 
-
-12、分布式事务 Seata
-
-13、分布式日志 elk + kafa
-
-14、支持 docker-compose、k8s、jenkins
-
-15、CAS 单点登录   √
-
-16、路由限流   √
-
-   
-#### 微服务架构图
-![微服务架构图](https://jeecgos.oss-cn-beijing.aliyuncs.com/files/jeecgboot-weifuwu-cloud.png "在这里输入图片标题")
-
-### Jeecg Boot 产品功能蓝图
-![功能蓝图](https://static.jeecg.com/upload/test/Jeecg-Boot-lantu202005_1590912449914.jpg "在这里输入图片标题")
-
-
-后台开发环境和依赖
-----
-- java
-- maven
-- jdk8
-- mysql
-- redis
-- 数据库脚本：jeecg-boot/db/jeecgboot-mysql-5.7.sql
-- 默认登录账号： admin/123456
-
-
-前端开发环境和依赖
-----
-- node
-- yarn
-- webpack
-- eslint
-- @vue/cli 3.2.1
-- [ant-design-vue](https://github.com/vueComponent/ant-design-vue) - Ant Design Of Vue 实现
-- [vue-cropper](https://github.com/xyxiao001/vue-cropper) - 头像裁剪组件
-- [@antv/g2](https://antv.alipay.com/zh-cn/index.html) - Alipay AntV 数据可视化图表
-- [Viser-vue](https://viserjs.github.io/docs.html#/viser/guide/installation)  - antv/g2 封装实现
-- [jeecg-boot-angular 版本](https://gitee.com/dangzhenghui/jeecg-boot)
-
-项目下载和运行
-----
-
-- 拉取项目代码
-```bash
-git clone https://github.com/zhangdaiscott/jeecg-boot.git
-cd  jeecg-boot/ant-design-jeecg-vue
-```
-
-1. 安装node.js
-2. 切换到ant-design-jeecg-vue文件夹下
-```
-# 安装yarn
-npm install -g yarn
-
-# 下载依赖
-yarn install
-
-# 启动
-yarn run serve
-
-# 编译项目
-yarn run build
-
-# Lints and fixes files
-yarn run lint
+@SpringBootApplication(exclude = {org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration.class,
+        org.springframework.boot.actuate.autoconfigure.security.servlet.ManagementWebSecurityAutoConfiguration.class
+,org.activiti.spring.boot.SecurityAutoConfiguration.class
+})
 ```
 
 
-
-
-
-
-其他说明
-----
-
-- 项目使用的 [vue-cli3](https://cli.vuejs.org/guide/), 请更新您的 cli
-
-- 关闭 Eslint (不推荐) 移除 `package.json` 中 `eslintConfig` 整个节点代码
-
-- 修改 Ant Design 配色，在文件 `vue.config.js` 中，其他 less 变量覆盖参考 [ant design](https://ant.design/docs/react/customize-theme-cn) 官方说明
-```ecmascript 6
-  css: {
-    loaderOptions: {
-      less: {
-        modifyVars: {
-          /* less 变量覆盖，用于自定义 ant design 主题 */
-
-          'primary-color': '#F5222D',
-          'link-color': '#F5222D',
-          'border-radius-base': '4px',
-        },
-        javascriptEnabled: true,
-      }
-    }
-  }
++ jeecg-boot/jeecg-boot-module-system/pom.xml 添加依赖
+```xml
+<dependency>
+    <groupId>org.jeecgframework.boot</groupId>
+    <artifactId>jeecg-boot-module-activiti</artifactId>
+    <version>${jeecgboot.version}</version>
+</dependency>
 ```
++ jeecg-boot/pom.xml  添加
+> <module>jeecg-boot-module-activiti</module>
+```xml
+<modules>
+    <module>jeecg-boot-base-common</module>
+    <module>jeecg-boot-module-system</module>
+    <module>jeecg-boot-module-activiti</module>
+</modules>
+```
++ jeecg-boot/jeecg-boot-module-activiti/db/ 文件夹内数据库初始化文件
+> 其他，可网上搜索activiti 5.22.0 版本
+
++ ShiroConfig.java  
+  添加过滤路径
+```
+//activiti
+filterChainDefinitionMap.put("/activiti/**", "anon");
+filterChainDefinitionMap.put("/diagram-viewer/**", "anon");
+filterChainDefinitionMap.put("/editor-app/**", "anon");
+```
++ 启动
 
 
+>功能齐备，使用方法自己研究，正常开发者看看代码就应该会，看不会我解释起来也会挺费劲的。通过流程模块的七个菜单走查代码即可（看不见菜单，请先执行activiti模块包下的相关增量sql，再给菜单授权即可。），代码简单易读，一年经验的开发者读懂毫无问题！
 
-附属文档
-----
-- [Ant Design Vue](https://www.antdv.com/docs/vue/introduce-cn)
+- **流程模块预览**
 
-- [报表 viser-vue](https://viserjs.github.io/demo.html#/viser/line/basic-line)
-
-- [Vue](https://cn.vuejs.org/v2/guide)
-
-- [路由/菜单说明](https://gitee.com/jeecg/jeecg-boot/tree/v1.1/ant-design-jeecg-vue/src/router/README.md)
-
-- [ANTD 默认配置项](https://gitee.com/jeecg/jeecg-boot/blob/v1.1/ant-design-jeecg-vue/src/defaultSettings.js)
-
-- 其他待补充...
+![流程相关菜单](https://images.gitee.com/uploads/images/2020/0612/160424_2624efb9_1406033.png "屏幕截图.png")
 
 
+## 捐赠
+
+如果觉得还不错（本人觉得是相当不错，jeecg-boot+me 完胜淘宝上三百五百的破玩意。）  
+一毛两毛都是爱，一块两块都是情，土豪随意 ☺
+
+![](https://images.gitee.com/uploads/images/2020/0503/233715_925e2dc6_1406033.jpeg)
