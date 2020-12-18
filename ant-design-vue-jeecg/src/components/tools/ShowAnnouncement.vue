@@ -81,6 +81,7 @@
         if(this.record.openType==='url'){
           this.visible = false;
           //链接跳转
+          console.log(this.record.openPage)
           this.$router.push({path: this.record.openPage})
         }
       },

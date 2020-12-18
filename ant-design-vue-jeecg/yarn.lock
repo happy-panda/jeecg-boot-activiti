@@ -871,10 +871,10 @@
     cssnano-preset-default "^4.0.0"
     postcss "^7.0.0"
 
-"@jeecg/antd-online-mini@2.4.0-beta":
-  version "2.4.0-beta"
-  resolved "https://registry.npmjs.org/@jeecg/antd-online-mini/-/antd-online-mini-2.4.0-beta.tgz#b478ea52f004b127297c2e09f76a953d6474a710"
-  integrity sha512-sDNFBhDKFJm+Rwc88wJaLzBAR9jnYkJowqhIQxop6YPl9J2HDtbOQVvQl6ISDnfJyp9tFwzvKfJR81Q49Vac4A==
+"@jeecg/antd-online-mini@2.4.0-beta4":
+  version "2.4.0-beta4"
+  resolved "https://registry.yarnpkg.com/@jeecg/antd-online-mini/-/antd-online-mini-2.4.0-beta4.tgz#341547415991c504168417d684b27d876b671b38"
+  integrity sha512-MJcBDEHrsR+Zyvp8i5VquD1T4I6PXCwyxmgQf9yWQGLiQuVUzsMJ27aLIx3U8/iR2ajMkqTDAggQ1AiJgcg3GA==
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"

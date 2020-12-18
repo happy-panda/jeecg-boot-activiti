@@ -39,11 +39,16 @@
 			<artifactId>jeecg-boot-module-demo</artifactId>
 			<version>${jeecgboot.version}</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.jeecgframework.boot</groupId>
+			<artifactId>jeecg-boot-module-activiti</artifactId>
+			<version>${jeecgboot.version}</version>
+		</dependency>
 
 	</dependencies>
 
 	<build>
+		<finalName>jeecg-xxx</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -53,6 +58,29 @@
 					<skip>false</skip>
 				</configuration>
 			</plugin>
+			<!--简化打包体积  启动命令
+			java -Dloader.path=F:\Desktop\lib -jar jeecg-xxx.jar
+			-->
+			<!--<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<layout>ZIP</layout>
+					<includes>
+						<include>
+							<groupId>nothing</groupId>
+							<artifactId>nothing</artifactId>
+						</include>
+					</includes>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>-->
 		</plugins>
 	</build>
 </project>

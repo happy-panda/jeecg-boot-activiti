@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.jeecg.modules.activiti.mapper.ActZprocessMapper">
+
+    <select id="selectNewestProcess" parameterType="java.lang.String" resultType="org.jeecg.modules.activiti.entity.ActZprocess">
+        select azp.* from act_z_process azp inner join (
+            select process_key,max(version) as version from act_z_process actz where `status` = 1 group by process_key
+        ) newest
+        on azp.process_key = newest.process_key
+        and azp.version = newest.version
+        <if test="processKey!=null and processKey!=''">
+            where azp.process_key = #{processKey}
+        </if>
+    </select>
+</mapper>
