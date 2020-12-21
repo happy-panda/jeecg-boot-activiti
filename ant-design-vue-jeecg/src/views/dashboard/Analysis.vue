@@ -1,5 +1,6 @@
 <template>
   <div>
+    <file-mangement uuId="ssss"></file-mangement>
     <index-chart v-if="indexStyle==1"></index-chart>
     <index-bdc v-if="indexStyle==2"></index-bdc>
     <index-task v-if="indexStyle==3"></index-task>
@@ -18,10 +19,12 @@
   import IndexChart from './IndexChart'
   import IndexTask from "./IndexTask"
   import IndexBdc from './IndexBdc'
+  import FileMangement from "@/extends/FileMangement/fileMangement";
 
   export default {
     name: "Analysis",
     components: {
+      FileMangement,
       IndexChart,
       IndexTask,
       IndexBdc

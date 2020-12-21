@@ -154,6 +154,14 @@ spring:
       shutdown-timeout: 100ms
     password: ''
     port: 6379
+#mongodb
+  data:
+    mongodb:
+      host: 127.0.0.1
+      port: 27017
+      database: dev
+  #      username:
+  #      password:
 #mybatis plus 设置
 mybatis-plus:
   mapper-locations: classpath*:org/jeecg/modules/**/xml/*Mapper.xml
@@ -179,6 +187,8 @@ jeecg :
     upload: D://opt//upFiles
     #webapp文件路径
     webapp: D://opt//webapp
+  file:
+    maxSize: 200
   shiro:
     excludeUrls: /test/jeecgDemo/demo3,/test/jeecgDemo/redisDemo/**,/category/**,/visual/**,/map/**,/jmreport/bigscreen2/**
   #阿里云oss存储配置

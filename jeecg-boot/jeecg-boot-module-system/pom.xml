@@ -44,6 +44,11 @@
 			<artifactId>jeecg-boot-module-activiti</artifactId>
 			<version>${jeecgboot.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.jeecgframework.boot</groupId>
+			<artifactId>jeecg-boot-module-extend</artifactId>
+			<version>${jeecgboot.version}</version>
+		</dependency>
 
 	</dependencies>
 

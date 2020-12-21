@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.jeecg.modules.mongodb.mapper.SysFileMapper">
+
+
+    <!-- 根据业务Id查询 -->
+    <select id="getBusinessId" resultType="org.jeecg.modules.mongodb.entity.SysFile">
+        SELECT
+        *
+        FROM
+        sys_file
+        WHERE
+        business_id = #{businessId}
+    </select>
+
+
+</mapper>
