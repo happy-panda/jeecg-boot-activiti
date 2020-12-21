@@ -1,6 +1,5 @@
 package org.jeecg.config;
 
-import com.alibaba.druid.pool.DruidDataSource;
 import org.activiti.engine.ProcessEngineConfiguration;
 import org.activiti.spring.SpringProcessEngineConfiguration;
 import org.activiti.spring.boot.AbstractProcessEngineAutoConfiguration;
@@ -16,8 +15,12 @@ import javax.sql.DataSource;
 public class ActivitiDataSourceConfig extends AbstractProcessEngineAutoConfiguration {
     @Resource
     private ActivitiDataSourceProperties activitiDataSourceProperties;
-
-    @Bean
+    /**
+     * 直接取AutoConfig生成的数据源
+     * */
+    @Resource
+    private DataSource dataSource;
+    /*@Bean
     public DataSource activitiDataSource() {
         DruidDataSource DruiddataSource = new DruidDataSource();
         DruiddataSource.setUrl(activitiDataSourceProperties.getUrl());
@@ -25,17 +28,19 @@ public class ActivitiDataSourceConfig extends AbstractProcessEngineAutoConfigura
         DruiddataSource.setPassword(activitiDataSourceProperties.getPassword());
         DruiddataSource.setUsername(activitiDataSourceProperties.getUsername());
         return DruiddataSource;
-    }
+    }*/
 
     @Bean
     public PlatformTransactionManager transactionManager() {
-        return new DataSourceTransactionManager(activitiDataSource());
+        //return new DataSourceTransactionManager(activitiDataSource());
+        return new DataSourceTransactionManager(dataSource);
     }
 
     @Bean
     public SpringProcessEngineConfiguration springProcessEngineConfiguration() {
         SpringProcessEngineConfiguration configuration = new SpringProcessEngineConfiguration();
-        configuration.setDataSource(activitiDataSource());
+        //configuration.setDataSource(activitiDataSource());
+        configuration.setDataSource(dataSource);
         configuration.setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_TRUE);
         configuration.setJobExecutorActivate(true);
         configuration.setTransactionManager(transactionManager());
