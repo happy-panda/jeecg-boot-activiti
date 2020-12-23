@@ -356,6 +356,11 @@ export const constantRouterMap = [
         path: 'home',
         name: 'TestHome',
         component: () => import('@/views/Home')
+      },
+      {
+        path: 'cesium',
+        name: 'cesium',
+        component: () => import('@/extends/cesium/CesiumDemo.vue')
       }
     ]
   },
