@@ -4,7 +4,7 @@
 </template>
 
 <script>
-  import echart from 'echarts';
+  import * as echart from 'echarts';
   import ResizeListener from 'element-resize-detector';
     export default {
       props: {
