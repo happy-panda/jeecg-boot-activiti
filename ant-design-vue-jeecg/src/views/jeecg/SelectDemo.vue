@@ -181,6 +181,7 @@
             </a-form-item>
           </a-col>
           <a-col :span="12">富文本编辑器(v-model)：{{ jeditor.value }}</a-col>
+          <a-col :span="12" v-html="jeditor.value"></a-col>
         </a-row>
 
         <!-- JEllipsis -->
