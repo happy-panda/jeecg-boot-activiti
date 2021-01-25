@@ -115,7 +115,14 @@
         </a-form-item>
         <!-- update--end--autor:wangshuai-----date:20200108------for：新增身份和负责部门------ -->
         <a-form-item label="头像" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <j-image-upload class="avatar-uploader" text="上传" v-model="fileList" ></j-image-upload>
+          <file-mangement
+            v-if="BASE_FileType=='mongodb'"
+            :uuId="username"
+            :fileType="'img'"
+            :moduleCode="'头像'"
+            @afterIntFiles="afterIntFiles"
+          ></file-mangement>
+          <j-image-upload v-if="BASE_FileType!='mongodb'" class="avatar-uploader" text="上传" v-model="fileList" ></j-image-upload>
         </a-form-item>
 
         <a-form-item label="生日" :labelCol="labelCol" :wrapperCol="wrapperCol">
@@ -175,10 +182,12 @@
   import { disabledAuthFilter } from "@/utils/authFilter"
   import {duplicateCheck } from '@/api/api'
   import JImageUpload from '../../../components/jeecg/JImageUpload'
+  import FileMangement from "@/extends/FileMangement/fileMangement";
 
   export default {
     name: "UserModal",
     components: {
+      FileMangement,
       JImageUpload,
       departWindow,
       JSelectPosition
@@ -197,6 +206,8 @@
         checkedDepartNameString:"", // 保存部门的名称 =>title
         resultDepartOptions:[],
         userId:"", //保存用户id
+        username:"",
+        userHead:'',
         disableSubmit:false,
         userDepartModel:{userId:'',departIdList:[]}, // 保存SysUserDepart的用户部门中间表数据需要的对象
         dateFormat:"YYYY-MM-DD",
@@ -358,6 +369,7 @@
         that.userId = record.id;
         that.visible = true;
         that.model = Object.assign({}, record);
+        that.username = that.model.username
         that.$nextTick(() => {
           that.form.setFieldsValue(pick(this.model,'username','sex','realname','email','phone','activitiSync','workNo','telephone','post'))
         });
@@ -463,6 +475,8 @@
             }
             // that.addDepartsToUser(that,formData); // 调用根据当前用户添加部门信息的方法
             let obj;
+            //头像  mongondb
+            if (that.userHead) formData.avatar = that.userHead;
             if(!this.model.id){
               formData.id = this.userId;
               obj=addUser(formData);
@@ -560,6 +574,7 @@
         }
       },
       validateUsername(rule, value, callback){
+        this.username = value
         var params = {
           tableName: 'sys_user',
           fieldName: 'username',
@@ -671,6 +686,12 @@
             this.departIdShow=false;
         }else{
             this.departIdShow=true;
+        }
+      },
+      afterIntFiles(files) {
+        console.log('afterIntFiles',files)
+        if (files&&files.length){
+          this.userHead = files[0].id
         }
       }
     }

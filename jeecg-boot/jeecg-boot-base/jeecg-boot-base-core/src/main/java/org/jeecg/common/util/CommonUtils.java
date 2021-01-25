@@ -103,6 +103,9 @@ public class CommonUtils {
      */
     public static String upload(MultipartFile file, String bizPath, String uploadType) {
         String url = "";
+        if(CommonConstant.UPLOAD_TYPE_Mongodb.equals(uploadType)){
+
+        }else
         if(CommonConstant.UPLOAD_TYPE_MINIO.equals(uploadType)){
             url = MinioUtil.upload(file,bizPath);
         }else{

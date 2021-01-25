@@ -1,5 +1,6 @@
 package org.jeecg.modules.mongodb.controller;
 
+import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -177,6 +178,23 @@ public class SysFileController extends JeecgController<SysFile, ISysFileService>
     @ResponseBody
     public void download(@RequestParam(name = "id", required = true) String id, HttpServletResponse response) {
         sysFileService.downLoad(id, response);
+    }
+    /**
+     * 附件（包含图片）下载
+     *
+     * @param id 附件id
+     */
+    @ApiOperation(notes = "download attachment ", httpMethod = "GET", value = "下载附件")
+    @GetMapping("/opendownload")
+    @ResponseBody
+    public void opendownload(@RequestParam(name = "id", required = true) String id, HttpServletResponse response) {
+        SysFile byId = sysFileService.getById(id);
+        // 限定某些文件开放下载
+        if (StrUtil.contains(byId.getModuleCode(),"头像")){
+            sysFileService.downLoad(id, response);
+        }else {
+            return;
+        }
     }
     /**
      * 附件（包含图片）下载 文件流

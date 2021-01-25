@@ -91,6 +91,7 @@
                    sysFiles = []
                  }
                  _this.fileList = sysFiles;
+                 _this.$emit("afterIntFiles",_this.fileList)
                }
               });
            },
