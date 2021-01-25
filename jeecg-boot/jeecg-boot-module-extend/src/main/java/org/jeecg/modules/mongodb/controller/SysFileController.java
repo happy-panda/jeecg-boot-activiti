@@ -190,7 +190,7 @@ public class SysFileController extends JeecgController<SysFile, ISysFileService>
     public void opendownload(@RequestParam(name = "id", required = true) String id, HttpServletResponse response) {
         SysFile byId = sysFileService.getById(id);
         // 限定某些文件开放下载
-        if (StrUtil.contains(byId.getModuleCode(),"头像")){
+        if (byId!=null&&StrUtil.contains(byId.getModuleCode()+"","头像")){
             sysFileService.downLoad(id, response);
         }else {
             return;
