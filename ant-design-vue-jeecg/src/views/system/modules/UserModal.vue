@@ -115,13 +115,22 @@
         </a-form-item>
         <!-- update--end--autor:wangshuai-----date:20200108------for：新增身份和负责部门------ -->
         <a-form-item label="头像" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <file-mangement
-            v-if="BASE_FileType=='mongodb'"
-            :uuId="username"
-            :fileType="'img'"
-            :moduleCode="'头像'"
-            @afterIntFiles="afterIntFiles"
-          ></file-mangement>
+          <template v-if="BASE_FileType=='mongodb'">
+            <a-radio-group name="radioGroup" v-model="userHead" v-if="userHead">
+              <a-radio v-for="item in userHeads" :value="item.id">
+                <a-avatar :title="item.fileName" :alt="item.fileName" :src="getHeadsHttpUrl(item.id)" shape="square" :size="64" icon="user" />
+              </a-radio>
+            </a-radio-group>
+            <a-alert message="可上传多个图片并选择一个候选头像，需要提交保存生效！" banner />
+            <file-mangement  style="margin-top: 10px"
+              :uuId="username"
+              :fileType="'img'"
+              :moduleCode="'头像'"
+              :isMultiple="true"
+              @afterIntFiles="afterIntFiles"
+              @changeFile="afterIntFiles"
+            ></file-mangement>
+          </template>
           <j-image-upload v-if="BASE_FileType!='mongodb'" class="avatar-uploader" text="上传" v-model="fileList" ></j-image-upload>
         </a-form-item>
 
@@ -177,7 +186,7 @@
   import departWindow from './DepartWindow'
   import JSelectPosition from '@/components/jeecgbiz/JSelectPosition'
   import { ACCESS_TOKEN } from "@/store/mutation-types"
-  import { getAction } from '@/api/manage'
+  import {getAction, getFileAccessHttpUrl} from '@/api/manage'
   import {addUser,editUser,queryUserRole,queryall } from '@/api/api'
   import { disabledAuthFilter } from "@/utils/authFilter"
   import {duplicateCheck } from '@/api/api'
@@ -207,6 +216,7 @@
         resultDepartOptions:[],
         userId:"", //保存用户id
         username:"",
+        userHeads:[],
         userHead:'',
         disableSubmit:false,
         userDepartModel:{userId:'',departIdList:[]}, // 保存SysUserDepart的用户部门中间表数据需要的对象
@@ -286,7 +296,8 @@
         identity:"1",
         fileList:[],
         tenantList: [],
-        currentTenant:[]
+        currentTenant:[],
+        showHeadMsg: false
       }
     },
     created () {
@@ -688,11 +699,20 @@
             this.departIdShow=true;
         }
       },
-      afterIntFiles(files) {
+      afterIntFiles(files,status) {
         console.log('afterIntFiles',files)
+        this.showHeadMsg = true
         if (files&&files.length){
+          this.userHeads = files
           this.userHead = files[0].id
+        }else {
+          this.userHead = ''
+          this.userHeads = []
         }
+
+      },
+      getHeadsHttpUrl(fileId) {
+        return getFileAccessHttpUrl(fileId);
       }
     }
   }

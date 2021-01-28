@@ -173,15 +173,15 @@ export function uploadAction(url,parameter){
  * @returns {*}
  */
 export function getFileAccessHttpUrl(avatar,subStr) {
-  if (window._CONFIG['BASE_FileType']=="mongodb"){
-    return window._CONFIG['domianURL']+`/system/sysFile/opendownload?id=${avatar}`
-  }
 
   if(!subStr) subStr = 'http'
   try {
     if(avatar && avatar.startsWith(subStr)){
       return avatar;
     }else{
+      if (window._CONFIG['BASE_FileType']=="mongodb"){
+        return window._CONFIG['domianURL']+`/system/sysFile/opendownload?id=${avatar}`
+      }
       if(avatar &&　avatar.length>0 && avatar.indexOf('[')==-1){
         return window._CONFIG['staticDomainURL'] + "/" + avatar;
       }

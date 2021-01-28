@@ -1,13 +1,14 @@
 <template>
   <a-upload-dragger
     :fileList="fileList"
-    :multiple="true"
+    :multiple="isMultiple"
     @change="changeFile"
     class="upload-list-inline"
     :customRequest="customRequest"
     @download="downloadFile"
     @preview="previewFile"
     @remove="removeFile"
+    :before-upload="beforeUpload"
   >
     <p class="ant-upload-drag-icon">
       <a-icon type="inbox" />
@@ -15,7 +16,7 @@
     <p class="ant-upload-text">
       单击或拖动文件到此区域以上载
     </p>
-    <p class="ant-upload-hint">
+    <p v-if="isMultiple" class="ant-upload-hint">
       支持单次或批量上传。
     </p>
   </a-upload-dragger>
@@ -44,7 +45,12 @@
           type: String,
           default: '',
           required: false
-        }
+        },
+        isMultiple:{
+          type:Boolean,
+          required:false,
+          default: true
+        },
       },
         name: "fileMangement",
         data(){
@@ -91,12 +97,14 @@
                    sysFiles = []
                  }
                  _this.fileList = sysFiles;
+                 console.log('_this.$emit("afterIntFiles",_this.fileList)')
                  _this.$emit("afterIntFiles",_this.fileList)
                }
               });
            },
           /*上传文件 */
           changeFile(info){
+            const _this = this;
             if (info.file.status === 'uploading') {
               let fileId = this.fileId;
               let fileList = [...info.fileList];
@@ -107,13 +115,15 @@
                 return file;
               });
               this.fileList = fileList;
-              console.log(this.fileList);
+              console.log('this.fileList',this.fileList);
+              _this.$emit("changeFile",_this.fileList,info.file.status)
             }
             if(info.file.status === "removed"){
               let fileId = info.file.id;
               const formData = {id:fileId}
               this.deleteFile(formData);
               this.fileList = info.fileList;
+              _this.$emit("changeFile",_this.fileList,info.file.status)
             }
             if (info.file.status === 'done') {
               this.$message.success(`${info.file.name} 上传成功`);
@@ -157,7 +167,21 @@
           },
           removeFile(file){
             console.log("file",file);
-          }
+          },
+          beforeUpload(file) {
+            if (this.fileType==='img'){
+              const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
+              if (!isJpgOrPng) {
+                this.$message.error('请选择图片文件上传!');
+              }
+              const isLt2M = file.size / 1024 / 1024 < 2;
+              if (!isLt2M) {
+                this.$message.error('上传的文件请小于 2MB!');
+              }
+              return isJpgOrPng && isLt2M;
+            }
+            return true;
+          },
         }
     }
 </script>
