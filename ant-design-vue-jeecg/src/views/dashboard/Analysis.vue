@@ -1,8 +1,8 @@
 <template>
   <div>
     <file-mangement uuId="ssss"></file-mangement>
-    <b-pdf :file="'60137d6395657f2fee283f13'"></b-pdf>
-<!--    <b-pdf :file="'http://storage.xuetangx.com/public_assets/xuetangx/PDF/PlayerAPI_v1.0.6.pdf'"></b-pdf>-->
+<!--    <b-pdf :file="'60137d6395657f2fee283f13'"></b-pdf>-->
+    <b-pdf :file="'http://storage.xuetangx.com/public_assets/xuetangx/PDF/PlayerAPI_v1.0.6.pdf'"></b-pdf>
     <index-chart v-if="indexStyle==1"></index-chart>
     <index-bdc v-if="indexStyle==2"></index-bdc>
     <index-task v-if="indexStyle==3"></index-task>
