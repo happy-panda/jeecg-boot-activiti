@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import { axios } from '@/utils/request'
-
+import { ACCESS_TOKEN } from "@/store/mutation-types"
 const api = {
   user: '/mock/api/user',
   role: '/mock/api/role',
@@ -180,7 +180,8 @@ export function getFileAccessHttpUrl(avatar,subStr) {
       return avatar;
     }else{
       if (window._CONFIG['BASE_FileType']=="mongodb"){
-        return window._CONFIG['domianURL']+`/system/sysFile/opendownload?id=${avatar}`
+        const token = Vue.ls.get(ACCESS_TOKEN);
+        return window._CONFIG['domianURL']+`/system/sysFile/opendownload?id=${avatar}&token=${token}`
       }
       if(avatar &&　avatar.length>0 && avatar.indexOf('[')==-1){
         return window._CONFIG['staticDomainURL'] + "/" + avatar;

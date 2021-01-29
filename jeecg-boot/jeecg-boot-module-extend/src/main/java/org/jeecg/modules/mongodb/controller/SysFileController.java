@@ -11,6 +11,8 @@ import org.jeecg.common.api.vo.Result;
 import org.jeecg.common.aspect.annotation.AutoLog;
 import org.jeecg.common.system.base.controller.JeecgController;
 import org.jeecg.common.system.query.QueryGenerator;
+import org.jeecg.common.system.vo.LoginUser;
+import org.jeecg.config.shiro.ShiroRealm;
 import org.jeecg.modules.mongodb.entity.SysFile;
 import org.jeecg.modules.system.service.ISysFileService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +39,8 @@ import java.util.Map;
 public class SysFileController extends JeecgController<SysFile, ISysFileService> {
     @Autowired
     private ISysFileService sysFileService;
-
+    @Autowired
+    private ShiroRealm shiroRealm;
     /**
      * 分页列表查询
      *
@@ -187,13 +190,16 @@ public class SysFileController extends JeecgController<SysFile, ISysFileService>
     @ApiOperation(notes = "download attachment ", httpMethod = "GET", value = "下载附件")
     @GetMapping("/opendownload")
     @ResponseBody
-    public void opendownload(@RequestParam(name = "id", required = true) String id, HttpServletResponse response) {
-        SysFile byId = sysFileService.getById(id);
-        // 限定某些文件开放下载
-        if (byId!=null&&StrUtil.contains(byId.getModuleCode()+"","头像")){
+    public void opendownload(@RequestParam(name = "id", required = true) String id, HttpServletRequest request,HttpServletResponse response) {
+        String token = request.getParameter("token");
+        LoginUser user = null;
+        if (StrUtil.isNotBlank(token)){
+            user = shiroRealm.checkUserTokenIsEffect(token);
+        }
+        //验证权限  此处可定义其他条件，比如某些文件不用用户登录亦可访问
+
+        if (user!=null&&StrUtil.isNotBlank(user.getId())){
             sysFileService.downLoad(id, response);
-        }else {
-            return;
         }
     }
     /**
