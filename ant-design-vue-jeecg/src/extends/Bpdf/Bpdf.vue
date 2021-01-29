@@ -8,8 +8,11 @@
         跳转到: &nbsp;<a-input-number v-model="pageNum" @change="skip" style="width: 60px;margin-right: 4px;"></a-input-number>
         <a-button @click.stop="nextPage"><a-icon type="right" /> 下一页</a-button>
         <a-button @click.stop="toPage(pageTotalNum)"><a-icon type="vertical-left" /> 尾页</a-button>
-        <a-button @click.stop="clock"><a-icon type="redo" /> 顺时针</a-button>
-        <a-button @click.stop="counterClock"><a-icon type="undo" /> 逆时针</a-button>
+        <span style="float: right">
+          <a-button @click.stop="clock"><a-icon type="redo" /> 顺时针</a-button>
+          <a-button @click.stop="counterClock"><a-icon type="undo" /> 逆时针</a-button>
+          <a-button @click.stop="down"><a-icon type="arrow-down" />下载</a-button>
+        </span>
       </div>
       <pdf ref="pdf"
            :src="url"
@@ -106,6 +109,9 @@
         if (pageNum<1) pageNum = 1
         if (pageNum>this.pageTotalNum) pageNum = this.pageTotalNum
         this.pageNum = Math.floor(pageNum)
+      },
+      down() {
+        window.open(this.url)
       }
     },
   }
